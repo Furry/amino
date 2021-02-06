@@ -1,0 +1,37 @@
+{
+  "name": "amino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "eslint": "eslint",
+    "lint": "yarn build && eslint dist/**/*.ts",
+    "fix": "yarn lint --fix",
+    "build": "tsc",
+    "go": "yarn build && node ./dist/index.js",
+    "test": "yarn build && node ./tests/runClient.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furry/amino.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/furry/amino/issues"
+  },
+  "homepage": "https://github.com/furry/amino#readme",
+  "dependencies": {
+    "file-type": "^16.2.0",
+    "node-fetch": "^2.6.1",
+    "ws": "^7.4.3"
+  },
+  "devDependencies": {
+    "@types/file-type": "^10.9.1",
+    "@types/node": "^14.14.25",
+    "@types/node-fetch": "^2.5.8",
+    "@types/ws": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.2"
+  }
+}

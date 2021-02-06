@@ -1,0 +1,6 @@
+# Build Directories
+dist/
+node_modules/
+tests/
+
+

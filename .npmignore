@@ -1,0 +1,8 @@
+# Unused directories
+src/
+docs/
+tests/
+
+# Unused files
+.eslintrc.js
+tsconfig.json
