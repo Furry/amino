@@ -1,9 +1,16 @@
 # Community
 Represents a community
 ## Methods
-  - NA
+  - ```ts
+    /** CHECKIN
+     * 
+     * Performs a checkin for the given community
+     */
+    async checkin(): Promise<CheckInHistory> {
+    ```
 
 ## Properties:
+
 ```ts
 export interface Community {
     userAddedTopicList: UserAddedTopicList[];
@@ -76,4 +83,3 @@ export interface Extensions {
     iTagIdList: number[];
 }
 ```
-<br>

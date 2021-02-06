@@ -5,6 +5,18 @@ export class Community {
     constructor(public client: BaseClient, data: GenericObject) {
         Object.assign(this, data)
     }
+
+    /** CHECKIN
+     * 
+     * Performs a checkin for the given community
+     */
+    async checkin(): Promise<CheckInHistory> {
+        const res = await this.client.elevator.request
+            .setEndpoint("check-in")
+            .setMethod("POST")
+            .send("json")
+        return res.checkInHistory
+    }
 }
 
 
@@ -38,6 +50,18 @@ export interface Community {
     templateId: number;
     createdTime: Date;
     promotionalMediaList: any[][];
+}
+
+export interface CheckInHistory {
+    joinedTime: number;
+    stopTime: number;
+    consecutiveCheckInDays: number;
+    streakRepairCoinCost: number;
+    startTime: number;
+    hasCheckInToday: boolean;
+    streakRepairWindowSize: number;
+    hasAnyCheckIn: boolean;
+    history: string;
 }
 
 export interface Style {
