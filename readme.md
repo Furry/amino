@@ -40,25 +40,25 @@
 <h2>Classes & Documentation:</h2>
 <ul>
     <li>
-        <a href="https://github.com/Furry/amino/docs/client.md">Client</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/client.md">Client</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/wallet.md">Wallet</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/wallet.md">Wallet</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/community.md">Community</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/community.md">Community</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/account.md">Account</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/account.md">Account</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/message.md">Message</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/message.md">Message</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/thread.md">Thread</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/thread.md">Thread</a>
     </li>
     <li>
-        <a href="https://github.com/Furry/amino/docs/profile.md">Profile</a>
+        <a href="https://github.com/Furry/amino/tree/master/docs/profile.md">Profile</a>
     </li>
 </ul>
 
