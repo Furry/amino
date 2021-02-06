@@ -22,28 +22,56 @@ export class Thread {
      * 
      * Sends a message and or image to the current thread.
      * @param content String the data you want to send
-     * @param type Number The message type
-     * @param attachment Buffer The raw image data
      */
-    async send(content: string | null, attachment?: Buffer): Promise<Message> {
-        const body: GenericObject = {
-            type: 0,
-            content: content,
-            attachedObject: null,
-        }
-
-        if (attachment) {
-            const mimeType = await FileType.fromBuffer(attachment)
-            body["mediaUhqEnabled"] = true
-            body["mediaType"] = 100
-            body["mediaUploadValueContentType"] = mimeType ? mimeType.mime : "image/png"
-            body["mediaUploadValue"] = attachment.toString("base64")
-        }
-
+    async send(content: string): Promise<Message> {
         const res = await this.client.elevator.request
             .setEndpoint(`chat/thread/${this.threadId}/message`)
             .setMethod("POST")
-            .setBody(body)
+            .setBody({
+                type: 0,
+                content: content,
+                attachedObject: null,
+            })
+            .send("json")
+        return new Message(this.client, res)
+    }
+
+    /** SENDIMAGEFILE
+     * 
+     * Send an image to the thread
+     * @param attachment Buffer the raw image data
+     */
+    async sendImageFile(attachment: Buffer): Promise<Message> {
+        const mimeType = await FileType.fromBuffer(attachment)
+        const res = await this.client.elevator.request
+            .setEndpoint(`chat/thread/${this.threadId}/message`)
+            .setMethod("POST")
+            .setBody({
+                type: 0,
+                content: null,
+                attachedObject: null,
+                mediaUploadValueContentType: mimeType ? mimeType.mime : "image/png",
+                mediaUploadValue: attachment.toString("base64")
+            })
+            .send("json")
+        return new Message(this.client, res)
+    }
+
+    /** SENDAUDIOFILE
+     * 
+     * Send an audio file to the thread
+     * @param attachment Bufer the raw audio data
+     */
+    async sendAudioFile(attachment: Buffer): Promise<Message> {
+        const res = await this.client.elevator.request
+            .setEndpoint(`chat/thread/${this.threadId}/message`)
+            .setMethod("POST")
+            .setBody({
+                type: 2,
+                mediaType: 110,
+                content: null,
+                mediaUploadValue: attachment.toString("base64")
+            })
             .send("json")
         return new Message(this.client, res)
     }

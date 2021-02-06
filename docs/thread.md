@@ -16,10 +16,26 @@ Represents a thread/channel, either DM or Public.
      * 
      * Sends a message and or image to the current thread.
      * @param content String the data you want to send
-     * @param type Number The message type
-     * @param attachment Buffer The raw image data
      */
-    async send(content: string | null, attachment?: Buffer): Promise<Message> { // ...
+    async send(content: string): Promise<Message> { // ...
+    ```
+
+  - ```ts
+    /** SENDIMAGEFILE
+     * 
+     * Send an image to the thread
+     * @param attachment Buffer the raw image data
+     */
+    async sendImageFile(attachment: Buffer): Promise<Message> { // ...
+    ```
+
+  - ```ts
+    /** SENDAUDIOFILE
+     * 
+     * Send an audio file to the thread
+     * @param attachment Bufer the raw audio data
+     */
+    async sendAudioFile(attachment: Buffer): Promise<Message> { // ...
     ```
 
   - ```ts
