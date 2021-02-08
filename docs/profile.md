@@ -2,7 +2,13 @@
 Represents a profile of a user.
 
 ## Methods
-  - NA
+  - ```ts
+    /** COMMENT
+     * 
+     * @param content string The content you want to add to a person's wall
+     */
+    async comment(content: string): Promise<Comment> {
+    ```
 
 
 ## Properties:
