@@ -1,4 +1,4 @@
-// Constnats
+// Constants
 import Constants from "./api/Constants";
 export { Constants } 
 
