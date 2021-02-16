@@ -29,10 +29,6 @@ export class SocketManager extends EventEmitter {
             }
         }, 60000)
 
-        setInterval(() => {
-            wsc.send("ping")
-        }, 5000)
-
         wsc.on("message", (msg) => {
             this.emit("raw", msg.toString("utf8"))
         })
