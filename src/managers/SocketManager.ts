@@ -3,8 +3,6 @@ import WebSocket from "ws"
 import { API } from "../api/API"
 import Constants from "../api/Constants"
 import { LibError, LibErrors } from "../errors/LibError"
-import { Profile } from "../structs/Profile"
-import { Thread } from "../structs/Thread"
 
 interface SocketConfig {
     caching: boolean,

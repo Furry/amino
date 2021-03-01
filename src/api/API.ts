@@ -1,4 +1,3 @@
-import { Account } from "../structs/Account";
 import Constants from "./Constants";
 import { GenericObject, RequestBuilder } from "./RequestBuilder";
 

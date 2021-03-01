@@ -1,4 +1,3 @@
-import EventEmitter from "events"
 import { API } from "../api/API";
 import { GenericObject } from "../api/RequestBuilder";
 import { SocketManager } from "../managers/SocketManager";
