@@ -1,4 +1,4 @@
-import { API } from "../api/API";
+import { API, SocketOverrides } from "../api/API";
 import { GenericObject } from "../api/RequestBuilder";
 import { SocketManager } from "../managers/SocketManager";
 import { Account } from "../structs/Account";
@@ -28,8 +28,8 @@ export class BaseClient extends SocketManager {
     protected _account: Account | undefined
     users: Map<string, Profile>
     threads: Map<string, Thread>
-    constructor(community: string) {
-        const api = new API(community);
+    constructor(community: string, overrides: SocketOverrides) {
+        const api = new API(community, overrides);
         super(api);
         this.api = api;
 

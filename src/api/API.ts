@@ -1,6 +1,11 @@
 import Constants from "./Constants";
 import { GenericObject, RequestBuilder } from "./RequestBuilder";
 
+export interface SocketOverrides {
+    msgSignature?: string,
+    deviceID?: string
+}
+
 export class API {
     private _headers: GenericObject = {
         "User-Agent": Constants.Device.userAgent
@@ -11,7 +16,10 @@ export class API {
     public loggedIn = false
     public community: string;
 
-    constructor(community: string) {
+    private overrides: SocketOverrides;
+
+    constructor(community: string, overrides: SocketOverrides) {
+        this.overrides = overrides
         if (!community.startsWith("x") && community != "g") {
             this.community = "x" + community
         } else {
@@ -27,8 +35,8 @@ export class API {
         return {
             ...this.headers,
             "AUID": this.uid,
-            "NDC-MSG-SIG": Constants.Device.msgSignature,
-            "NDCDEVICEID": Constants.Device.deviceID
+            "NDC-MSG-SIG": this.overrides.msgSignature ? this.overrides.msgSignature : Constants.Device.msgSignature,
+            "NDCDEVICEID": this.overrides.deviceID ? this.overrides.deviceID : Constants.Device.deviceID
         }
     }
 

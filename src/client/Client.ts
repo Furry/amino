@@ -1,10 +1,11 @@
+import { SocketOverrides } from "../api/API";
 import Constants from "../api/Constants";
 import { Wallet } from "../structs/Wallet";
 import { BaseClient } from "./BaseClient";
 
 export class Client extends BaseClient {
-    constructor(community = Constants.API.defaultCommunity) {
-        super(community)
+    constructor(community = Constants.API.defaultCommunity, overrides: SocketOverrides = {}) {
+        super(community, overrides)
     }
 
     /** FETCHWALLET
