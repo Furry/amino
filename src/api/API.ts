@@ -3,23 +3,24 @@ import { GenericObject, RequestBuilder } from "./RequestBuilder";
 
 export interface SocketOverrides {
     msgSignature?: string,
-    deviceID?: string
+    deviceID?: string,
+    useragent?: string
 }
 
 export class API {
-    private _headers: GenericObject = {
-        "User-Agent": Constants.Device.userAgent
-    }
-
     public uid = ""
  
     public loggedIn = false
     public community: string;
 
     private overrides: SocketOverrides;
+    private _headers: GenericObject
 
     constructor(community: string, overrides: SocketOverrides) {
         this.overrides = overrides
+        this._headers = {
+            "User-Agent": overrides.useragent ? overrides.useragent : Constants.Device.userAgent
+        }
         if (!community.startsWith("x") && community != "g") {
             this.community = "x" + community
         } else {
